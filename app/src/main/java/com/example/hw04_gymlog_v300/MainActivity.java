@@ -75,26 +75,13 @@ public class MainActivity extends AppCompatActivity {
 
         updateSharedPreference();
 
-        //TODO: remove two lines below
-//        binding.logDisplayTextView.setMovementMethod(new ScrollingMovementMethod());
-//        updateDisplay();
         binding.logButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getInformationFromDisplay();
                 insertGymLogRecord();
-                //TODO: remove line below
-//                updateDisplay();
             }
         });
-
-        // TODO: remove this block
-//        binding.exerciseInputEditText.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                updateDisplay();
-//            }
-//        });
     }
 
     private void loginUser(Bundle savedInstanceState) {
@@ -212,13 +199,11 @@ public class MainActivity extends AppCompatActivity {
     private void updateDisplay() {
         ArrayList<GymLog> allLogs = repository.getAllLogsByUserId(loggedInUserId);
         if (allLogs.isEmpty()) {
-//            binding.logDisplayTextView.setText(R.string.nothing_to_show_time_to_hit_the_gym);
         }
         StringBuilder sb = new StringBuilder();
         for (GymLog log : allLogs) {
             sb.append(log);
         }
-//        binding.logDisplayTextView.setText(sb.toString());
     }
 
     private void getInformationFromDisplay() {
